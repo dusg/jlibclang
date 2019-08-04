@@ -1,0 +1,1 @@
+cp cmake-build-debug/libclang-jni.dylib /Users/desg/Documents/workspace/intellij_idea_workspace/jlibclang/dll
