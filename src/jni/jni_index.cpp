@@ -11,8 +11,16 @@ namespace index_libclang
 {
 
     jobject jni_parseTranslationUnit(JNIEnv *env, jobject thisObj, jstring source_file, jobjectArray command_line_args,
-                                     jobjectArray unsaved_files, jobjectArray options) {
-        Index index1(env, thisObj);
+                                     jobjectArray unsaved_files, jint options) {
+        using namespace jni_libclang;
+        Index idx(env, thisObj);
+
+        JString srcFile(env, source_file);
+        CXTranslationUnit unit = clang_parseTranslationUnit(
+                idx.handler,
+                srcFile.c_str(), nullptr, 0,
+                nullptr, 0,
+                CXTranslationUnit_None);
     }
 
     std::vector<JNINativeMethod> methods;

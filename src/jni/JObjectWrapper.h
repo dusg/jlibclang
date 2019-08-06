@@ -7,6 +7,7 @@
 
 #include <jni.h>
 #include <string>
+#include <vector>
 
 namespace jni_libclang
 {
@@ -27,6 +28,35 @@ namespace jni_libclang
         jobject _obj = nullptr;
         std::string _className;
         jclass _cls;
+    };
+
+    class JString
+    {
+    public:
+        JString(JNIEnv* env, jstring str);
+        virtual ~JString();
+
+        const char*operator()();
+        const char* c_str() { return operator()();}
+    private:
+        JNIEnv* _env = nullptr;
+        const char* _cstr = nullptr;
+        jstring _str;
+    };
+
+    class JStrArray
+    {
+    public:
+        JStrArray(JNIEnv *env, jobjectArray);
+        virtual ~JStrArray();
+
+        const char* const * toNative();
+
+    private:
+        JNIEnv* _env = nullptr;
+        jobjectArray _jarr;
+        std::vector<JString> _strArr;
+        std::vector<const char*> _nativeArr;
     };
 }
 
