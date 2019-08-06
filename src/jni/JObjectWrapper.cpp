@@ -56,3 +56,5 @@ jni_libclang::JStrArray::JStrArray(JNIEnv *env, jobjectArray jarr) {
 const char *const *jni_libclang::JStrArray::toNative() {
     return _nativeArr.data();
 }
+
+jni_libclang::JStrArray::~JStrArray() = default;
