@@ -9,7 +9,7 @@
 
 static int registerNatives(JNIEnv *pEnv);
 
-namespace jni_libclang
+namespace jni_util
 {
     jobject createIndex(JNIEnv *env, jobject thisObj,
                         jboolean excludeDeclarationsFromPCH, jboolean displayDiagnostics) {
@@ -21,12 +21,12 @@ namespace jni_libclang
 
 
     std::vector<JNINativeMethod> methods = {
-            {"createIndex", "(ZZ)Ljlibclang/CXIndex;", (void *) createIndex}
+            {(char*)"createIndex", (char*)"(ZZ)Ljlibclang/CXIndex;", (void *) createIndex}
     };
 }
 
 static std::map<const char *, std::vector<JNINativeMethod>> _methods = {
-        { "jlibclang/LibClang", jni_libclang::methods}
+        { "jlibclang/LibClang", jni_util::methods}
 };
 
 static int registerNatives(JNIEnv *pEnv) {
