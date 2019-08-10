@@ -11,9 +11,9 @@ public class LibClang {
         } else if (Platform.isWindows()) {
             libPath = "libclang-jni.dll";
         }
-        String basePath = System.getProperty("jni.library.path");
+//        String basePath = System.getProperty("jni.library.path");
         //libPath = String.format("%s/%s", basePath, libPath);
-        System.out.println(System.getProperty("user.dir"));
+//        System.out.println(System.getProperty("user.dir"));
         System.loadLibrary(libPath);
     }
     static {

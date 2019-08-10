@@ -11,7 +11,7 @@
 #include <string>
 #include "JObjectWrapper.h"
 
-namespace index_libclang
+namespace jni_lib_clang
 {
     class Index : public jni_util::NativeWrapper<CXIndex>
     {
@@ -20,30 +20,35 @@ namespace index_libclang
         std::string _className = "jlibclang/CXIndex";
     public:
         Index(JNIEnv *env, jobject obj);
+
         explicit Index(CXIndex handler);
 
     protected:
         jobject DoMakeJavaObj(JNIEnv *env, NativeType &native) override;
+
         void DoMakeNative(NativeType &native, JNIEnv *env, jobject obj) override;
+
+    public:
+        static std::vector<JNINativeMethod> methods;
     };
 
 
-class UnsavedFile : public jni_util::NativeWrapper<CXUnsavedFile>
+    class UnsavedFile : public jni_util::NativeWrapper<CXUnsavedFile>
     {
     public:
         UnsavedFile(JNIEnv *env, jobject obj);
-        UnsavedFile(CXUnsavedFile unsavedFile):NativeWrapper(unsavedFile) {}
+
+        UnsavedFile(CXUnsavedFile unsavedFile) : NativeWrapper(unsavedFile) {}
 
     protected:
-    void DoMakeNative(NativeType &native, JNIEnv *env, jobject obj) override;
+        void DoMakeNative(NativeType &native, JNIEnv *env, jobject obj) override;
 
-    jobject DoMakeJavaObj(JNIEnv *env, NativeType &native) override;
+        jobject DoMakeJavaObj(JNIEnv *env, NativeType &native) override;
 
-    std::string _FilenameField = "Filename";
-    std::string _ContentsField = "Contents";
-    std::string _LengthField = "Length";
+        std::string _FilenameField = "Filename";
+        std::string _ContentsField = "Contents";
+        std::string _LengthField = "Length";
     };
 
-    extern std::vector<JNINativeMethod> methods;
 }
 #endif //LEARNLIBCLANG_JNI_INDEX_H

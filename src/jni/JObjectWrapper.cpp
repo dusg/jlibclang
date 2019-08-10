@@ -31,6 +31,11 @@ jni_util::JString jni_util::JObjectWrapper::GetStringField(const std::string &fi
     return GetObjField<JString>(fieldName, "java/lang/String");
 }
 
+void jni_util::JObjectWrapper::SetStringField(const std::string &fieldName, std::string str) {
+    jstring jstring1 = _env->NewStringUTF(str.c_str());
+    SetObjField(fieldName, jstring1, "java/lang/String");
+}
+
 jni_util::JString::JString(JNIEnv *env, jstring str) {
     Init(env, str);
 }
@@ -54,7 +59,7 @@ void jni_util::JString::Init(JNIEnv *env, jstring str) {
     _env->ReleaseStringUTFChars(_str, cstr);
 }
 
-jni_util::JStrArray::JStrArray(JNIEnv *env, jobjectArray jarr) : JArray(env, jarr) {
+jni_util::JStrArray::JStrArray(JNIEnv *env, jobjectArray jarr) {
     _env = env;
     _jarr = jarr;
     auto size = env->GetArrayLength(jarr);

@@ -37,11 +37,10 @@ link_libraries(
         )
 add_executable(LearnLibclang main.cpp)
 
-
 add_library(clang-jni SHARED
         jni_libclang.cpp
         jni_index.cpp
         JObjectWrapper.cpp
-        )
+        jni_translate_unit.cpp jni_translate_unit.h)
 
 add_executable(gen_enums gen_enums.cpp)

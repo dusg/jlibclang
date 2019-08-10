@@ -9,11 +9,11 @@
 
 static int registerNatives(JNIEnv *pEnv);
 
-namespace jni_util
+namespace jni_lib_clang
 {
-    jobject createIndex(JNIEnv *env, jobject thisObj,
+    JNICALL jobject createIndex(JNIEnv *env, jobject thisObj,
                         jboolean excludeDeclarationsFromPCH, jboolean displayDiagnostics) {
-        using namespace index_libclang;
+        using namespace jni_lib_clang;
         CXIndex cxIndex = clang_createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
         Index index(cxIndex);
         return index.toJavaObj(env);
@@ -26,7 +26,7 @@ namespace jni_util
 }
 
 static std::map<const char *, std::vector<JNINativeMethod>> _methods = {
-        { "jlibclang/LibClang", jni_util::methods}
+        { "jlibclang/LibClang", jni_lib_clang::methods}
 };
 
 static int registerNatives(JNIEnv *pEnv) {
