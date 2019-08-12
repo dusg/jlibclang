@@ -2,12 +2,21 @@ package jlibclang;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.lang.ref.PhantomReference;
+import java.lang.ref.WeakReference;
+
 public class CXIndex {
     static {
-        LibClang.LoadLibClang();
+//        LibClang.LoadLibClang();
     }
 
     long _handler = 0;
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        disposeIndex();
+    }
 
     public long get_handler() {
         return _handler;
@@ -28,4 +37,5 @@ public class CXIndex {
                                                   String[] command_line_args,
                                                   CXUnsavedFile[] unsaved_files,
                                                   int options);
+    private native void disposeIndex();
 }

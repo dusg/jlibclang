@@ -102,7 +102,8 @@ namespace jni_util
         void Init(JNIEnv *env, jstring str);
 
         JString(JNIEnv *env, jobject obj);
-
+        JString(std::string str):_stdString(str) {
+        }
         virtual ~JString();
 
         const char *operator()();
@@ -110,6 +111,9 @@ namespace jni_util
         const char *c_str() { return operator()(); }
 
         std::string toStdString() { return c_str(); }
+        jstring toJaveObj(JNIEnv* env) {
+            return env->NewStringUTF(_stdString.c_str());
+        }
 
     private:
         JNIEnv *_env = nullptr;
@@ -124,6 +128,9 @@ namespace jni_util
         JArray(JNIEnv *env, jobjectArray jarr) {
             _env = env;
             _jarr = jarr;
+            if (jarr == nullptr) {
+                return;
+            }
             auto size = env->GetArrayLength(jarr);
             for (int i = 0; i < size; ++i) {
                 jobject obj = env->GetObjectArrayElement(jarr, i);
@@ -131,7 +138,12 @@ namespace jni_util
                 this->push_back(element.toNative());
             }
         }
-
+        typename ElementType::NativeType * toNative() {
+            if (this->empty()) {
+                return nullptr;
+            }
+            return this->data();
+        }
     private:
         JNIEnv *_env = nullptr;
         jobjectArray _jarr;

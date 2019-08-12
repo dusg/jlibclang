@@ -62,6 +62,9 @@ void jni_util::JString::Init(JNIEnv *env, jstring str) {
 jni_util::JStrArray::JStrArray(JNIEnv *env, jobjectArray jarr) {
     _env = env;
     _jarr = jarr;
+    if (jarr == nullptr) {
+        return;
+    }
     auto size = env->GetArrayLength(jarr);
     for (int i = 0; i < size; ++i) {
         auto str = static_cast<jstring>(env->GetObjectArrayElement(jarr, i));

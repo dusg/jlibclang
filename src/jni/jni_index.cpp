@@ -8,11 +8,13 @@
 #include <vector>
 #include "JObjectWrapper.h"
 #include "jni_translate_unit.h"
+
 namespace jni_lib_clang
 {
 
-    JNICALL jobject parseTranslationUnit(JNIEnv *env, jobject thisObj, jstring source_file, jobjectArray command_line_args,
-                                         jobjectArray unsaved_files, jint options) {
+    JNICALL jobject
+    parseTranslationUnit(JNIEnv *env, jobject thisObj, jstring source_file, jobjectArray command_line_args,
+                         jobjectArray unsaved_files, jint options) {
         using namespace jni_util;
         Index idx(env, thisObj);
         JString srcFile(env, source_file);
@@ -21,15 +23,26 @@ namespace jni_lib_clang
         CXTranslationUnit unit = clang_parseTranslationUnit(
                 idx.toNative(),
                 srcFile.c_str(), args.toNative(), args.size(),
-                unsavedFiles.data(), unsavedFiles.size(),
+                unsavedFiles.toNative(), unsavedFiles.size(),
                 options);
 
         return TranslationUnit(unit).toJavaObj(env);
     }
 
-    std::vector<JNINativeMethod> Index::methods = {
-            {(char*)"parseTranslationUnit", (char*)"(Ljava/lang/String;[Ljava/lang/String;[Ljlibclang/CXUnsavedFile;I)Ljlibclang/CXTranslationUnit;", (void *) parseTranslationUnit}
-    };
+    JNICALL void disposeIndex(JNIEnv *env, jobject thisObj) {
+        using namespace jni_util;
+        Index idx(env, thisObj);
+        clang_disposeIndex(idx.toNative());
+    }
+
+    std::vector<JNINativeMethod> Index::getMethods() {
+        return {
+                {(char *) "parseTranslationUnit",
+                                          (char *) "(Ljava/lang/String;[Ljava/lang/String;[Ljlibclang/CXUnsavedFile;I)Ljlibclang/CXTranslationUnit;",
+                                                          (void *) parseTranslationUnit},
+                {(char *) "disposeIndex", (char *) "()V", (void *) disposeIndex}
+        };
+    }
 
     Index::Index(JNIEnv *env, jobject obj) : NativeWrapper(env, obj) {
     }
@@ -49,6 +62,7 @@ namespace jni_lib_clang
         wrapper.SetLongField(_handlerName, reinterpret_cast<jlong>(native));
         return wrapper.GetJavaObj();
     }
+
 
     UnsavedFile::UnsavedFile(JNIEnv *env, jobject obj) : NativeWrapper(env, obj) {}
 

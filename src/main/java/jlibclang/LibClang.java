@@ -30,5 +30,6 @@ public class LibClang {
     public static void main(String[] args) {
         ClangTest clangTest = new ClangTest();
         clangTest.testCreateIndex();
+        clangTest.testParseTranslationUnit();
     }
 }

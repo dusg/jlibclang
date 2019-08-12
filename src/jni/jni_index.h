@@ -29,7 +29,7 @@ namespace jni_lib_clang
         void DoMakeNative(NativeType &native, JNIEnv *env, jobject obj) override;
 
     public:
-        static std::vector<JNINativeMethod> methods;
+        static std::vector<JNINativeMethod> getMethods();
     };
 
 

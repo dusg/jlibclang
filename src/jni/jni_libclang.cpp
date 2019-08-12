@@ -6,13 +6,15 @@
 #include <map>
 #include <vector>
 #include "jni_index.h"
+#include "jni_cursor.h"
+#include "jni_translate_unit.h"
 
 static int registerNatives(JNIEnv *pEnv);
 
 namespace jni_lib_clang
 {
     JNICALL jobject createIndex(JNIEnv *env, jobject thisObj,
-                        jboolean excludeDeclarationsFromPCH, jboolean displayDiagnostics) {
+                                jboolean excludeDeclarationsFromPCH, jboolean displayDiagnostics) {
         using namespace jni_lib_clang;
         CXIndex cxIndex = clang_createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
         Index index(cxIndex);
@@ -20,24 +22,33 @@ namespace jni_lib_clang
     }
 
 
-    std::vector<JNINativeMethod> methods = {
-            {(char*)"createIndex", (char*)"(ZZ)Ljlibclang/CXIndex;", (void *) createIndex}
+    std::vector<JNINativeMethod> getMethods() {
+        std::vector<JNINativeMethod> methods; //=
+        return {{(char *) "createIndex", (char *) "(ZZ)Ljlibclang/CXIndex;", (void *) createIndex}};
     };
-}
 
-static std::map<const char *, std::vector<JNINativeMethod>> _methods = {
-        { "jlibclang/LibClang", jni_lib_clang::methods}
 };
 
-static int registerNatives(JNIEnv *pEnv) {
+static std::map<const char *, std::vector<JNINativeMethod>> getAllMethods() {
 
-    for (auto item : _methods) {
+    std::map<const char *, std::vector<JNINativeMethod>> methods = {
+            {"jlibclang/LibClang", jni_lib_clang::getMethods()},
+            {"jlibclang/CXIndex",  jni_lib_clang::Index::getMethods()},
+            {"jlibclang/CXTranslationUnit",  jni_lib_clang::TranslationUnit::getMethods()},
+            {"jlibclang/CXCursor",  jni_lib_clang::Cursor::getMethods()},
+    };
+    return methods;
+}
+
+static int registerNatives(JNIEnv *pEnv) {
+    auto allMethods = getAllMethods();
+    for (auto item : allMethods) {
         jclass clazz = pEnv->FindClass(item.first);
         if (clazz == nullptr)
             return JNI_FALSE;
 
         auto methods = item.second;
-        if (pEnv->RegisterNatives(clazz, methods.data(), methods.size())<0)
+        if (pEnv->RegisterNatives(clazz, methods.data(), methods.size()) < 0)
             return JNI_FALSE;
     }
     return JNI_TRUE;
