@@ -9,10 +9,9 @@
 #include "JObjectWrapper.h"
 #include "jni_translate_unit.h"
 
-namespace jni_lib_clang
-{
+namespace jni_lib_clang {
 
-    JNICALL jobject
+    jobject
     parseTranslationUnit(JNIEnv *env, jobject thisObj, jstring source_file, jobjectArray command_line_args,
                          jobjectArray unsaved_files, jint options) {
         using namespace jni_util;
@@ -29,7 +28,7 @@ namespace jni_lib_clang
         return TranslationUnit(unit).toJavaObj(env);
     }
 
-    JNICALL void disposeIndex(JNIEnv *env, jobject thisObj) {
+    void disposeIndex(JNIEnv *env, jobject thisObj) {
         using namespace jni_util;
         Index idx(env, thisObj);
         clang_disposeIndex(idx.toNative());

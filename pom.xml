@@ -13,17 +13,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jdk8</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-test</artifactId>
-      <version>${kotlin.version}</version>
-      <scope>test</scope>
-    </dependency>
     <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna-platform -->
     <dependency>
       <groupId>net.java.dev.jna</groupId>

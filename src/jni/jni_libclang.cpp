@@ -10,10 +10,9 @@
 #include "jni_translate_unit.h"
 
 static int registerNatives(JNIEnv *pEnv);
-
 namespace jni_lib_clang
 {
-    JNICALL jobject createIndex(JNIEnv *env, jobject thisObj,
+    jobject createIndex(JNIEnv *env, jobject thisObj,
                                 jboolean excludeDeclarationsFromPCH, jboolean displayDiagnostics) {
         using namespace jni_lib_clang;
         CXIndex cxIndex = clang_createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
@@ -55,7 +54,7 @@ static int registerNatives(JNIEnv *pEnv) {
 }
 
 extern "C" {
-jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 
     jint result = -1;
     JNIEnv *env = nullptr;

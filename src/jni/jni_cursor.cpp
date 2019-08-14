@@ -9,13 +9,13 @@
 
 namespace jni_lib_clang
 {
-    JNICALL void disposeNative(JNIEnv *env, jobject thisObj) {
+    void disposeNative(JNIEnv *env, jobject thisObj) {
         Cursor cursor(env, thisObj);
         CXCursor *tmp = (cursor.toNative());
         delete (tmp);
     }
 
-    JNICALL jstring getSpelling(JNIEnv *env, jobject thisObj) {
+    jstring getSpelling(JNIEnv *env, jobject thisObj) {
         using namespace jni_util;
         Cursor cursor(env, thisObj);
         String str = clang_getCursorSpelling(*cursor.toNative());

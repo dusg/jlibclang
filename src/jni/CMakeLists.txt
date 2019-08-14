@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.8)
 project(LearnLibclang)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -7,11 +7,17 @@ if (APPLE)
     set(boostPath /usr/local/Cellar/boost/1.69.0_2)
     set(boostLibPath /usr/local/Cellar/boost/1.69.0_2/lib)
     set(javaPath /Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home)
+    include_directories(
+            ${javaPath}/include/darwin
+    )
 elseif(${WIN32})
     set(LLVMPath "C:/Program Files/LLVM")
-    set(boostPath /usr/local/Cellar/boost/1.69.0_2)
-    set(boostLibPath /usr/local/Cellar/boost/1.69.0_2/someone)
-    set(javaPath /Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home)
+    set(boostPath ":D:/Program Files/boost_1_70_0")
+    set(boostLibPath ":D:/Program Files/boost_1_70_0/lib32-msvc-14.1")
+    set(javaPath "D:/Program Files/Java/jdk1.8.0_101")
+    include_directories(
+            ${javaPath}/include/win32
+    )
 endif()
 
 set(jlibclangDir /Users/desg/Documents/workspace/intellij_idea_workspace/jlibclang)
@@ -21,17 +27,22 @@ include_directories(
         ${boostPath}/include
         ${boostPath}
         ${javaPath}/include
-        ${javaPath}/include/darwin
         )
 link_directories(
         ${LLVMPath}/lib
         ${boostLibPath}
 )
-
+if (APPLE)
 link_libraries(
         libclang.dylib
 #        libboost_filesystem.dylib
         )
+elseif(${WIN32})
+    link_libraries(
+            libclang
+    )
+endif()
+
 
 add_executable(LearnLibclang main.cpp)
 
