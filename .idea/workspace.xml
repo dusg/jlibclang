@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94a12165-7254-4dc0-8aae-0947b2531df4" name="Default Changelist" comment="" />
+    <list default="true" id="94a12165-7254-4dc0-8aae-0947b2531df4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jni/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jni/jni_cursor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/jni_cursor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursorVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursorVisitor.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

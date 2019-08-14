@@ -13,7 +13,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0658df76-9b0c-4c9c-a1f1-036922ddb23c" name="Default Changelist" comment="" />
+    <list default="true" id="0658df76-9b0c-4c9c-a1f1-036922ddb23c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jni_cursor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/jni_cursor.cpp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectId" id="1P3MA6uPOHMB5hKKDAX5eB3ppxL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -85,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1565098179429</updated>
       <workItem from="1565098180627" duration="3892000" />
-      <workItem from="1565103727634" duration="28715000" />
+      <workItem from="1565103727634" duration="31928000" />
     </task>
     <servers />
   </component>
@@ -110,12 +113,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/jni_index.cpp</url>
-          <line>18</line>
+          <line>15</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/jni_index.cpp</url>
-          <line>32</line>
+          <line>31</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -125,7 +128,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/jni_libclang.cpp</url>
-          <line>50</line>
+          <line>49</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
