@@ -3,10 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="94a12165-7254-4dc0-8aae-0947b2531df4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jni/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jni/JObjectWrapper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/JObjectWrapper.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jni/JObjectWrapper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/JObjectWrapper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jni/install.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/install.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jni/jni_cursor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/jni_cursor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jni/jni_libclang.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/jni_libclang.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursorKind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursorKind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursorVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursorVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jlibclang/CXIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jlibclang/CXIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jlibclang/LibClang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jlibclang/LibClang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/ClangTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/ClangTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,6 +115,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClangTest.testAST" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jlibclang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.ClangTest" />
+      <option name="METHOD_NAME" value="testAST" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="JUnit" factoryName="JUnit">
       <module name="jlibclang" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -166,9 +190,11 @@
       <item itemvalue="Application.LibClang" />
       <item itemvalue="JUnit.Test" />
       <item itemvalue="Remote.DebugJni" />
+      <item itemvalue="JUnit.ClangTest.testAST" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClangTest.testAST" />
         <item itemvalue="Application.LibClang" />
       </list>
     </recent_temporary>
@@ -198,26 +224,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/test/ClangTest.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/test/ClangTest.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/test/ClangTest.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

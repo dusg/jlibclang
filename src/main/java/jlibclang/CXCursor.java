@@ -11,7 +11,7 @@ public class CXCursor {
 
     native String getSpelling();
 
-    CXCursorKind getKind() throws Exception {
+    public CXCursorKind getKind() throws Exception {
         return CXCursorKind.fromNative(getKindNative());
     }
     native int getKindNative();

@@ -22,6 +22,21 @@ public class ClangTest extends ClangTestBase {
         Assert.assertTrue(cursor.get_handler() != 0);
     }
 
+    public void testAST() {
+        final CXCursor cxCursor = getCursor();
+        try {
+            cxCursor.visitChildren(new CXCursorVisitor() {
+                public void Visit(CXCursor cursor, CXCursor parent, CXClientData client_data) throws Exception {
+                    String msg = String.format("Cursor %s of kind %s", cursor, cursor.getKind());
+                    System.out.println(msg);
+                }
+            }, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            assertTrue(false);
+        }
+    }
+
     private CXCursor getCursor() {
         CXTranslationUnit unit = getCxTranslationUnit();
         return unit.getUnitCursor();

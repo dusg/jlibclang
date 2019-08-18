@@ -8,22 +8,33 @@
 #include "jni_index.h"
 #include "jni_cursor.h"
 #include "jni_translate_unit.h"
+#include "jni_utils.h"
 
 static int registerNatives(JNIEnv *pEnv);
+
 namespace jni_lib_clang
 {
     jobject createIndex(JNIEnv *env, jobject thisObj,
-                                jboolean excludeDeclarationsFromPCH, jboolean displayDiagnostics) {
+                        jboolean excludeDeclarationsFromPCH, jboolean displayDiagnostics) {
         using namespace jni_lib_clang;
         CXIndex cxIndex = clang_createIndex(excludeDeclarationsFromPCH, displayDiagnostics);
         Index index(cxIndex);
         return index.toJavaObj(env);
     }
 
+    jstring getCursorKindSpelling(JNIEnv *env, jobject thisObj, jint kind) {
+        using namespace jni_util;
+        CXCursorKind cursorKind = static_cast<CXCursorKind>(kind);
+        String jString = clang_getCursorKindSpelling(cursorKind);
+        return JString(jString.toStdString()).toJaveObj(env);
+    }
 
     std::vector<JNINativeMethod> getMethods() {
         std::vector<JNINativeMethod> methods; //=
-        return {{(char *) "createIndex", (char *) "(ZZ)Ljlibclang/CXIndex;", (void *) createIndex}};
+        return {
+                {(char *) "createIndex",           (char *) "(ZZ)Ljlibclang/CXIndex;", (void *) createIndex},
+                {(char *) "getCursorKindSpelling", (char *) "(I)Ljava/lang/String;", (void *) getCursorKindSpelling},
+        };
     };
 
 };
@@ -31,10 +42,10 @@ namespace jni_lib_clang
 static std::map<const char *, std::vector<JNINativeMethod>> getAllMethods() {
 
     std::map<const char *, std::vector<JNINativeMethod>> methods = {
-            {"jlibclang/LibClang", jni_lib_clang::getMethods()},
-            {"jlibclang/CXIndex",  jni_lib_clang::Index::getMethods()},
-            {"jlibclang/CXTranslationUnit",  jni_lib_clang::TranslationUnit::getMethods()},
-            {"jlibclang/CXCursor",  jni_lib_clang::Cursor::getMethods()},
+            {"jlibclang/LibClang",          jni_lib_clang::getMethods()},
+            {"jlibclang/CXIndex",           jni_lib_clang::Index::getMethods()},
+            {"jlibclang/CXTranslationUnit", jni_lib_clang::TranslationUnit::getMethods()},
+            {"jlibclang/CXCursor",          jni_lib_clang::Cursor::getMethods()},
     };
     return methods;
 }

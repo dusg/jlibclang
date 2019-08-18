@@ -14,11 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0658df76-9b0c-4c9c-a1f1-036922ddb23c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JObjectWrapper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/JObjectWrapper.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JObjectWrapper.h" beforeDir="false" afterPath="$PROJECT_DIR$/JObjectWrapper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.sh" beforeDir="false" afterPath="$PROJECT_DIR$/install.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jni_cursor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/jni_cursor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jni_libclang.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/jni_libclang.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1565098179429</updated>
       <workItem from="1565098180627" duration="3892000" />
-      <workItem from="1565103727634" duration="34937000" />
+      <workItem from="1565103727634" duration="38978000" />
     </task>
     <servers />
   </component>
@@ -116,11 +115,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/jni_index.cpp</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/jni_index.cpp</url>
           <line>31</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -130,9 +124,19 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/jni_libclang.cpp</url>
-          <line>49</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/jni_cursor.cpp</url>
+          <line>22</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jni_translate_unit.cpp</url>
+          <line>17</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/jni_cursor.cpp</url>
+          <line>53</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

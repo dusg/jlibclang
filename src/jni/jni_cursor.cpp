@@ -48,12 +48,20 @@ namespace jni_lib_clang
 
         return JString(str.toStdString()).toJaveObj(env);
     }
+    jint getKindNative(JNIEnv *env, jobject thisObj) {
+        using namespace jni_util;
+        Cursor cursor(env, thisObj);
+        jint kind = cursor.toNative()->kind;
+        return kind;
+    }
 }
 
 std::vector<JNINativeMethod> jni_lib_clang::Cursor::getMethods() {
     return {
             {(char *) "disposeNative", (char *) "()V",                  (void *) disposeNative},
             {(char *) "getSpelling",   (char *) "()Ljava/lang/String;", (void *) getSpelling},
+            {(char *) "visitChildren",   (char *) "(Ljlibclang/CXCursorVisitor;Ljlibclang/CXClientData;)Z", (void *) visitChildren},
+            {(char *) "getKindNative",   (char *) "()I", (void *) getKindNative},
     };
 }
 

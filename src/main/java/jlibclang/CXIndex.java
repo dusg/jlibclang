@@ -1,10 +1,5 @@
 package jlibclang;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.lang.ref.PhantomReference;
-import java.lang.ref.WeakReference;
-
 public class CXIndex {
     static {
 //        LibClang.LoadLibClang();

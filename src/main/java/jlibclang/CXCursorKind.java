@@ -248,5 +248,11 @@ public enum CXCursorKind {
         return _code;
     }
 
+    @Override
+    public String toString() {
+        return LibClang.I.getCursorKindSpelling(this);
+    }
+
+
     private int _code = 0;
 }
