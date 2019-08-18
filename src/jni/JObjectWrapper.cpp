@@ -36,6 +36,14 @@ void jni_util::JObjectWrapper::SetStringField(const std::string &fieldName, std:
     SetObjField(fieldName, jstring1, "java/lang/String");
 }
 
+void jni_util::JObjectWrapper::CallVoid(std::string name, std::string sig, ...) {
+    auto methodId = _env->GetMethodID(_cls, name.c_str(), sig.c_str());
+    va_list args;
+    va_start(args,sig);
+    _env->CallVoidMethodV(_obj,methodId,args);
+    va_end(args);
+}
+
 jni_util::JString::JString(JNIEnv *env, jstring str) {
     Init(env, str);
 }

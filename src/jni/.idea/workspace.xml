@@ -14,7 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0658df76-9b0c-4c9c-a1f1-036922ddb23c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JObjectWrapper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/JObjectWrapper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JObjectWrapper.h" beforeDir="false" afterPath="$PROJECT_DIR$/JObjectWrapper.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jni_cursor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/jni_cursor.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1565098179429</updated>
       <workItem from="1565098180627" duration="3892000" />
-      <workItem from="1565103727634" duration="31928000" />
+      <workItem from="1565103727634" duration="34937000" />
     </task>
     <servers />
   </component>

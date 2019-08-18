@@ -27,6 +27,10 @@ namespace jni_lib_clang
                                        auto *visitPtr = static_cast<CursorVisit *>(clientData);
                                        Cursor jCursor(cxCursor), jParent(parent);
                                        jni_util::JObjectWrapper wrapper(visitPtr->env, visitPtr->visitor);
+                                       wrapper.CallVoid("Visit",
+                                                          "(Ljlibclang/CXCursor;Ljlibclang/CXCursor;Ljlibclang/CXClientData;)V",
+                                                          jCursor.toJavaObj(visitPtr->env),
+                                                          jParent.toJavaObj(visitPtr->env), visitPtr->client_data);
                                        return CXChildVisit_Recurse;
                                    }, &cursorVisit);
     }

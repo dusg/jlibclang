@@ -85,7 +85,40 @@ namespace jni_util
         JString GetStringField(const std::string &fieldName);
         void SetStringField(const std::string &fieldName, std::string str);
 
+        void CallVoid(std::string name, std::string sig, ...);
+
+        template <typename ReturnType>
+        ReturnType Call(std::string name, std::string sig, ...) {
+            auto methodId = _env->GetMethodID(_cls, name.c_str(), sig.c_str());
+            va_list args;
+            va_start(args,sig);
+            ReleaseArgs tmp(args);
+            if (typeid(jobject) == typeid(ReturnType)) {
+                return _env->CallObjectMethodV(_obj, methodId, args);
+            } else if (typeid(jboolean) == typeid(ReturnType)) {
+                return _env->CallBooleanMethodV(_obj, methodId, args);
+            } else if (typeid(jbyte) == typeid(ReturnType)) {
+                return _env->CallByteMethodV(_obj, methodId, args);
+            } else if (typeid(jchar) == typeid(ReturnType)) {
+                return _env->CallCharMethodV(_obj, methodId, args);
+            } else if (typeid(jshort) == typeid(ReturnType)) {
+                return _env->CallShortMethodV(_obj, methodId, args);
+            } else if (typeid(jint) == typeid(ReturnType)) {
+                return _env->CallIntMethodV(_obj, methodId, args);
+            } else if (typeid(jlong) == typeid(ReturnType)) {
+                return _env->CallLongMethodV(_obj, methodId, args);
+            } else if (typeid(jfloat) == typeid(ReturnType)) {
+                return _env->CallFloatMethodV(_obj, methodId, args);
+            } else if (typeid(jdouble) == typeid(ReturnType)) {
+                return _env->CallDoubleMethodV(_obj, methodId, args);
+            }
+        }
     private:
+        struct ReleaseArgs {
+                ReleaseArgs(va_list& args):args(args){}
+                ~ReleaseArgs(){ va_end(args); }
+                va_list & args;
+            };
         JNIEnv *_env = nullptr;
         jobject _obj = nullptr;
         std::string _className;

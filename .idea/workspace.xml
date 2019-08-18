@@ -4,8 +4,9 @@
     <list default="true" id="94a12165-7254-4dc0-8aae-0947b2531df4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jni/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jni/JObjectWrapper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/JObjectWrapper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jni/JObjectWrapper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/JObjectWrapper.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jni/jni_cursor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/jni/jni_cursor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursorVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jlibclang/CXCursorVisitor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
